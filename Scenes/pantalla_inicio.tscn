@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://b7e7o8q4orhxr"]
 
-[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="1_s0td0"]
-[ext_resource type="Texture2D" uid="uid://m4ub6oll4ikv" path="res://Assets/Invaders/Invader3-1.png" id="2_a64v5"]
-[ext_resource type="Texture2D" uid="uid://bn227mp3yqjlo" path="res://Assets/Invaders/Invader2-1.png" id="3_5cuhc"]
-[ext_resource type="Texture2D" uid="uid://dy2h5dklc8h7p" path="res://Assets/Invaders/Invader1-1.png" id="4_0i72d"]
+[ext_resource type="Script" uid="uid://rrylwsw3o584" path="res://Scenes/pantalla_inicio.gd" id="1_1n23k"]
+[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets/font/andina.ttf" id="2_1mx6k"]
+[ext_resource type="Texture2D" uid="uid://m4ub6oll4ikv" path="res://Assets/Invaders/Invader3-1.png" id="3_mf3xv"]
+[ext_resource type="Texture2D" uid="uid://bn227mp3yqjlo" path="res://Assets/Invaders/Invader2-1.png" id="4_ody52"]
+[ext_resource type="Texture2D" uid="uid://dy2h5dklc8h7p" path="res://Assets/Invaders/Invader1-1.png" id="5_3l3nk"]
 
 [node name="pantalla_inicio" type="CanvasLayer" unique_id=768448056]
+script = ExtResource("1_1n23k")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1736607580]
 anchors_preset = 8
@@ -32,9 +34,9 @@ theme_override_constants/separation = -60
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.6862745, 0.36078432, 0.13333334, 1)
-theme_override_fonts/font = ExtResource("1_s0td0")
+theme_override_fonts/font = ExtResource("2_1mx6k")
 theme_override_font_sizes/font_size = 108
-text = "POU
+text = "SPACE
 INVADERS
 "
 horizontal_alignment = 1
@@ -52,15 +54,17 @@ theme_override_constants/separation = 16
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_1" unique_id=731089175]
+[node name="Invader1_texture" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_1" unique_id=731089175]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("2_a64v5")
+texture = ExtResource("3_mf3xv")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_1" unique_id=801316443]
+[node name="Invader1_label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_1" unique_id=801316443]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_s0td0")
+theme_override_fonts/font = ExtResource("2_1mx6k")
 theme_override_font_sizes/font_size = 30
 text = "= 10 PUNTOS"
 horizontal_alignment = 1
@@ -71,15 +75,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_2" unique_id=25573382]
+[node name="Invader2_texture" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_2" unique_id=25573382]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(80, 60)
 layout_mode = 2
-texture = ExtResource("3_5cuhc")
+texture = ExtResource("4_ody52")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_2" unique_id=78763285]
+[node name="Invader2_label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_2" unique_id=78763285]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_s0td0")
+theme_override_fonts/font = ExtResource("2_1mx6k")
 theme_override_font_sizes/font_size = 30
 text = "= 20 PUNTOS"
 horizontal_alignment = 1
@@ -90,15 +96,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_3" unique_id=1812078706]
+[node name="Invader3_texture" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_3" unique_id=1812078706]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-texture = ExtResource("4_0i72d")
+texture = ExtResource("5_3l3nk")
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_3" unique_id=1601051909]
+[node name="Invader3_label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer_3" unique_id=1601051909]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_s0td0")
+theme_override_fonts/font = ExtResource("2_1mx6k")
 theme_override_font_sizes/font_size = 30
 text = "= 40 PUNTOS"
 horizontal_alignment = 1
@@ -108,6 +116,13 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_s0td0")
+theme_override_fonts/font = ExtResource("2_1mx6k")
 theme_override_font_sizes/font_size = 40
-text = "JUGAR POU INVADERS"
+text = "JUGAR SPACE INVADERS"
+
+[node name="Timer" type="Timer" parent="." unique_id=880127059]
+wait_time = 0.17
+autostart = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/Button" to="." method="load_game"]
+[connection signal="timeout" from="Timer" to="." method="show_next_control"]

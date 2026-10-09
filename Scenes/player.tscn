@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bf5o5vfhtomdr"]
+
+[ext_resource type="Script" uid="uid://nrj5mykx5dfl" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dt0af4o7yh41a" path="res://Assets/Player/Player.png" id="2_6t5aa"]
+[ext_resource type="Script" uid="uid://buh552pcpp26o" path="res://Scenes/shooting.gd" id="3_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://b4df85xmd0gdo" path="res://Scenes/laser.tscn" id="4_vgqql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13oxo"]
+size = Vector2(13, 5)
+
+[sub_resource type="GDScript" id="GDScript_vgqql"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Player" type="Area2D" unique_id=674102998]
+script = ExtResource("1_cvnsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2038547528]
+texture_filter = 1
+texture = ExtResource("2_6t5aa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1485262437]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_13oxo")
+script = SubResource("GDScript_vgqql")
+
+[node name="ShotOrigin" type="Node2D" parent="." unique_id=471895768]
+position = Vector2(0, -4)
+script = ExtResource("3_6t5aa")
+laser_scene = ExtResource("4_vgqql")
