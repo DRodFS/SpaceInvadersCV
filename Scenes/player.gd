@@ -16,6 +16,7 @@ func _ready() -> void: #Limites según cámara 2d
 	var camera_position = camera.position
 	start_bound = (camera_position.x - rect.size.x)/2
 	end_bound = (camera_position.x + rect.size.x)/2
+	
 func _process(delta: float) -> void: #Para que la navecita se pueda mover
 	var input = Input.get_axis("move_left", "move_right") # Atributos: Movimiento Negativo, Movimiento Positivo
 	
