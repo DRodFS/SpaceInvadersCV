@@ -13,11 +13,39 @@ const INVADERS_POSITION_X_INCREMENT = 10
 const INVADERS_POSITION_Y_INCREMENT = 20
 
 var movement_direction = 1
-
+var invader_scene = preload("res://Scenes/invader.tscn")
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	var invader_1_res = preload("res://Resources/invader_1.tres")
+	var invader_2_res = preload("res://Resources/invader_2.tres")
+	var invader_3_res = preload("res://Resources/invader_3.tres")
+	
+	var invader_config
+	
+	for row in ROWS:
+		if row == 0:
+			invader_config = invader_1_res
+		elif row == 1 || row == 2:
+			invader_config = invader_2_res
+		elif row == 3 || row == 4:
+			invader_config = invader_3_res
+			
+		var row_width = (COLUMNS * invader_config.width * 3) + ((COLUMNS - 1) * HORIZONTAL_SPACING)
+		var start_x = (position.x - row_width) / 2
+		
+		for col in COLUMNS:
+			var x = start_x + (col * invader_config.width * 3) + (col * HORIZONTAL_SPACING)
+			var y = START_Y_POSITION + (row * INVADER_HEIGHT) + (row * VERTICAL_SPACING)
+			var spawn_position = Vector2(x, y)
+			
+			spawn_invader(invader_config, spawn_position)
+			
+func spawn_invader(invader_config, spawn_position: Vector2):
+	var invader = invader_scene.instantiate() as Invader
+	invader.config = invader_config
+	invader.global_position = spawn_position
+	add_child(invader)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
