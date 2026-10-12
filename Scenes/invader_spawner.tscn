@@ -4,3 +4,7 @@
 
 [node name="InvaderSpawner" type="Node2D" unique_id=2023936518]
 script = ExtResource("1_w52gg")
+
+[node name="MovementTimer" type="Timer" parent="." unique_id=415208524]
+wait_time = 0.25
+autostart = true

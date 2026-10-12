@@ -15,8 +15,16 @@ const INVADERS_POSITION_Y_INCREMENT = 20
 var movement_direction = 1
 var invader_scene = preload("res://Scenes/invader.tscn")
 
+#NODE REFERENCES
+@onready var movement_timer: Timer = $MovementTimer
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#SETUP TIMERS
+	movement_timer.timeout.connect(move_invaders)
+	
+	
 	var invader_1_res = preload("res://Resources/invader_1.tres")
 	var invader_2_res = preload("res://Resources/invader_2.tres")
 	var invader_3_res = preload("res://Resources/invader_3.tres")
@@ -47,7 +55,21 @@ func spawn_invader(invader_config, spawn_position: Vector2):
 	invader.global_position = spawn_position
 	add_child(invader)
 
+func move_invaders():
+	position.x += INVADERS_POSITION_X_INCREMENT * movement_direction
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_left_wall_area_entered(area: Area2D):
+	if (movement_direction == -1):
+		position.y += INVADERS_POSITION_Y_INCREMENT
+		movement_direction *= -1
+
+
+func _on_right_wall_area_entered(area: Area2D):
+	if (movement_direction == 1):
+		position.y += INVADERS_POSITION_Y_INCREMENT
+		movement_direction *= -1
