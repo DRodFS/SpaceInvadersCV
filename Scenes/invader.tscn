@@ -30,7 +30,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ddrjc"]
 resource_name = "destroy"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -116,3 +116,6 @@ shape = SubResource("CircleShape2D_u3c5y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=776283170]
 libraries/ = SubResource("AnimationLibrary_7mkux")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
