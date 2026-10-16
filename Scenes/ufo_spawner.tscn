@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bkurkvveq14wf"]
+
+[ext_resource type="Script" uid="uid://dgjuy7xfdtt1r" path="res://Scenes/ufo_spawner.gd" id="1_typyy"]
+[ext_resource type="Script" uid="uid://b5q865ulhso0q" path="res://Scenes/spawn_timer.gd" id="2_eydok"]
+
+[node name="UfoSpawner" type="Node2D" unique_id=305946493]
+script = ExtResource("1_typyy")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1534410844]
+script = ExtResource("2_eydok")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

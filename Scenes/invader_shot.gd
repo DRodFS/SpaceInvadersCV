@@ -13,5 +13,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 
 func _on_area_entered(area):
-	(area as Player).on_player_destroyed()
-	queue_free()
+	if area is Player:
+		(area as Player).on_player_destroyed()
+		queue_free()
