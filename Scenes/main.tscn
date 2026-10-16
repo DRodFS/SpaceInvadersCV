@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bqqlub1g1a5b8" path="res://Scenes/bullet_catcher.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://bp7apwlcm78c8" path="res://Scenes/invader_spawner.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bkurkvveq14wf" path="res://Scenes/ufo_spawner.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://b06j65lqpnk58" path="res://Scenes/bunker.tscn" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://c6odu7672heyh" path="res://Scenes/life_manager.gd" id="6_21xkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3c5y"]
 size = Vector2(20, 649)
@@ -54,6 +56,25 @@ shape = SubResource("RectangleShape2D_tfht2")
 
 [node name="UfoSpawner" parent="." unique_id=305946493 instance=ExtResource("4_jjvhh")]
 position = Vector2(544, -280)
+
+[node name="Bunker" parent="." unique_id=609297618 instance=ExtResource("5_kry3j")]
+position = Vector2(-376, 175)
+scale = Vector2(4, 4)
+
+[node name="Bunker2" parent="." unique_id=17863209 instance=ExtResource("5_kry3j")]
+position = Vector2(-150, 175)
+scale = Vector2(4, 4)
+
+[node name="Bunker3" parent="." unique_id=244114140 instance=ExtResource("5_kry3j")]
+position = Vector2(150, 175)
+scale = Vector2(4, 4)
+
+[node name="Bunker4" parent="." unique_id=652859532 instance=ExtResource("5_kry3j")]
+position = Vector2(376, 175)
+scale = Vector2(4, 4)
+
+[node name="LifeManager" type="Node" parent="." unique_id=97400461]
+script = ExtResource("6_21xkr")
 
 [connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawner" method="_on_right_wall_area_entered"]
 [connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawner" method="_on_left_wall_area_entered"]

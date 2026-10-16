@@ -63,6 +63,7 @@ _data = {
 }
 
 [node name="Player" type="Area2D" unique_id=674102998]
+scale = Vector2(4, 4)
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2038547528]
@@ -81,3 +82,5 @@ laser_scene = ExtResource("4_vgqql")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=294844045]
 libraries/ = SubResource("AnimationLibrary_pu2lt")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
